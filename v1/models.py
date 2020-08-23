@@ -151,7 +151,6 @@ class Transaction(models.Model):
         CANCELLED = '3', "CANCELLED"
         COMPLETE = '4', "COMPLETE"
 
-
     initiator = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="initiator")
     recipient = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="recipient")
     init_timestamp = models.DateTimeField(auto_now_add=True)
