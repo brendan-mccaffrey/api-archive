@@ -36,7 +36,7 @@ class MyProfileManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, username, first_name, last_name, phone, address="None", birth_date="None", password, **kwargs):
+    def create_superuser(self, email, username, first_name, last_name, phone, address, birth_date, password, **kwargs):
         user = self.create_user(
             email = email,
             username = username,
@@ -67,8 +67,8 @@ class Profile(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone = models.CharField(max_length=30, blank=True, unique=True)
-    address = models.CharField(max_length=50, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
+    address = models.CharField(max_length=50, blank=True, default='DEFAULT ADDRESS')
+    birth_date = models.DateField(null=True, blank=True, default='DEFAULT BIRTHDAY')
     #prof_pic = models.ImageField(upload_to='profile-pics/%Y/%m/%d/')
 
     active = models.BooleanField(default=True, null=False)
