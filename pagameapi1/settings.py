@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+u)vtc-rwameko&rt^f66bfxt1g&@wq)sdyt%e=tncfl!zeyy%'
+SECRET_KEY = os.environ.get('PROD_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG_VALUE')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://pagameapp.herokuapp.com']
 
 
 # Application definition
@@ -89,8 +89,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'demo-db-1',
-        'USER': 'brendan',
-        'PASSWORD': 'Baestheticm032370002!',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
         'HOST': 'database-1.cluster-cbgagn3ojfwd.us-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
