@@ -25,7 +25,7 @@ class MyProfileManager(BaseUserManager):
         user.last_name = last_name
         user.address = address
         user.phone = phone
-        user.birth_date = self.normalize_date(birth_date)
+        user.birth_date = birth_date
         user.active = is_active
         user.admin = is_admin
         user.staff = is_staff
