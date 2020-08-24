@@ -36,16 +36,16 @@ class MyProfileManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, username, first_name, last_name, phone, address, birth_date, password, **kwargs):
+    def create_superuser(self, email, username, first_name, last_name, phone, address="None", birth_date="None", password, **kwargs):
         user = self.create_user(
             email = email,
             username = username,
-            password = password,
             first_name = first_name,
             last_name = last_name,
             phone = phone,
             address = address,
             birth_date = birth_date,
+            password = password,
             is_superuser = True,
             is_staff = True,
             is_admin = True,
