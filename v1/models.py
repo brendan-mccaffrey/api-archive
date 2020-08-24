@@ -36,7 +36,7 @@ class MyProfileManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, username, first_name, last_name, phone, address=None, birth_date=None, password, **kwargs):
+    def create_superuser(self, email, username, first_name, last_name, phone, password, address=None, birth_date=None, **kwargs):
         user = self.create_user(
             email = email,
             username = username,
