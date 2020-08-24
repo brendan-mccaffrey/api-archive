@@ -36,7 +36,7 @@ class MyProfileManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, username, first_name, last_name, phone, address, birth_date, password, **kwargs):
+    def create_superuser(self, email, username, first_name, last_name, phone, address=None, birth_date=None, password, **kwargs):
         user = self.create_user(
             email = email,
             username = username,
@@ -79,7 +79,7 @@ class Profile(AbstractBaseUser, PermissionsMixin):
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['phone', 'email', 'first_name', 'last_name', ]
+    REQUIRED_FIELDS = ['phone', 'email', 'first_name', 'last_name', 'address', 'birth_date']
 
     objects = MyProfileManager()
 

@@ -7,7 +7,8 @@ class ProfileCreationForm(UserCreationForm):
     class Meta:
 
 		model = Profile
-		fields = ['email', 'username', 'first_name', 'last_name', 'phone', 'password', 'password2']
+		fields = ['email', 'username', 'first_name', 'last_name', 'phone', 'address', 
+				'birth_date', 'password', 'password2']
 		extra_kwargs = {
 			'password': {'write_only': True}
 		}
